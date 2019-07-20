@@ -2,91 +2,65 @@ import React, { Component } from "react";
 import FriendCard from "./components/FriendCard";
 import Wrapper from "./components/Wrapper";
 import Title from "./components/Title";
+import Keanus from "./keanus.json"
 
 class App extends Component {
-  // Setting this.state.friends to the friends json array
   state = {
-    keanus : [
-      {
-        id: 1,
-        name: "Milk",
-        src: "images/keanu.jpg",
-        occupation: "Actor",
-        location: "Everywhere"
-      },
-      {
-        id: 2,
-        name: "Eggs",
-        src: "images/keanu (1).png",
-        occupation: "Actor",
-        location: "Everywhere"
-      },
-      {
-        id: 3,
-        name: "Cheese",
-        src: "images/keanu (2).jpg",
-        occupation: "Actor",
-        location: "Everywhere"
-      },
-      {
-        id: 4,
-        name: "Cake Mix",
-        src: "images/keanu (3).jpg",
-        occupation: "Actor",
-        location: "Everywhere"
-      },
-      {
-        id: 5,
-        name: "Carrots",
-        src: "images/keanu (4).jpg",
-        occupation: "Actor",
-        location: "Everywhere"
-      },
-      {
-        id: 6,
-        name: "Carrots",
-        src: "images/keanu (5).jpg",
-        occupation: "Actor",
-        location: "Everywhere"
-      },
-      {
-        id: 7,
-        name: "Carrots",
-        src: "images/keanu (6).jpg",
-        occupation: "Actor",
-        location: "Everywhere"
-      },
-      {
-        id: 8,
-        name: "Carrots",
-        src: "images/keanu (7).jpg",
-        occupation: "Actor",
-        location: "Everywhere"
-      }
-    ]
+    keanus : Keanus,
+    chosenOnes : Keanus,
+    clickedKeanus : [],
+    score: 0,
+    topscore: 0
   };
 
-  removeFriend = id => {
-    // Filter this.state.friends for friends with an id not equal to the id being removed
-    const friends = this.state.keanus.filter(friend => friend.id !== id);
-    // Set this.state.friends equal to the new friends array
-    this.setState({ friends });
+  handleClick = id => {
+    console.log(id);
+    let clicked = this.state.clickedKeanus;
+    let thisScore = this.state.score;
+    if(!clicked.includes(id)){
+      console.log(this.state.score);
+      clicked.push(id);
+      thisScore++
+      this.setState({ clickedKeanus : clicked, score: thisScore });
+      console.log(clicked);
+      console.log(thisScore);
+      this.shuffle(this.state.keanus);
+    }
+    else{
+      thisScore = 0;
+      clicked = [];
+      this.setState({ clickedKeanus : clicked, score: thisScore })
+      console.log(clicked);
+      console.log(thisScore);
+      this.shuffle(this.state.keanus);
+    }
   };
 
-  // Map over this.state.friends and render a FriendCard component for each friend object
+  shuffle = array => {
+    var i = array.length,
+      j = 0,
+      temp;
+
+    while (i--) {
+      j = Math.floor(Math.random() * (i + 1));
+      temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
+    this.setState({ chosenOnes : array })
+  }
+
   render() {
     return (
       <Wrapper>
-        <Title>House of Keanus</Title>
-        {this.state.keanus.map(friend => (
+        <Title score={this.state.score} title="House of Keanus"/>
+        {this.state.chosenOnes.map(friend => (
           <FriendCard
-            removeFriend={this.removeFriend}
+            handleClick={this.handleClick}
             id={friend.id}
             key={friend.id}
             name={friend.name}
             image={friend.src}
-            occupation={friend.occupation}
-            location={friend.location}
           />
         ))}
       </Wrapper>
