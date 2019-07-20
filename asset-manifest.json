@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/house-of-keanus/static/css/main.30a16591.chunk.css",
+    "main.js": "/house-of-keanus/static/js/main.615746f3.chunk.js",
+    "main.js.map": "/house-of-keanus/static/js/main.615746f3.chunk.js.map",
+    "runtime~main.js": "/house-of-keanus/static/js/runtime~main.ba5182d9.js",
+    "runtime~main.js.map": "/house-of-keanus/static/js/runtime~main.ba5182d9.js.map",
+    "static/js/2.884c28c3.chunk.js": "/house-of-keanus/static/js/2.884c28c3.chunk.js",
+    "static/js/2.884c28c3.chunk.js.map": "/house-of-keanus/static/js/2.884c28c3.chunk.js.map",
+    "index.html": "/house-of-keanus/index.html",
+    "precache-manifest.29ff510d34ade03ab851f1e63f3606bd.js": "/house-of-keanus/precache-manifest.29ff510d34ade03ab851f1e63f3606bd.js",
+    "service-worker.js": "/house-of-keanus/service-worker.js",
+    "static/css/main.30a16591.chunk.css.map": "/house-of-keanus/static/css/main.30a16591.chunk.css.map"
+  }
+}
