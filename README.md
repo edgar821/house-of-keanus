@@ -10,7 +10,7 @@ House of Keanus is a React game which objective is to click on as many Keanu Ree
 
 ## Demo
 
-Click [here](https://recommerndations.herokuapp.com) to launch the game. Hope you enjoy it!
+Click [here](https://edchavezb.github.io/house-of-keanus/) to launch the game. Hope you enjoy it!
 
 
 ## Authors
